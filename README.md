@@ -81,6 +81,13 @@ for i in range(1, 8):
 # Lower pixel value = higher saliency rank
 ```
 
+## Related Datasets
+
+- **VED100** — A video-based eye-tracking dataset on visual saliency detection, containing human fixation data collected from eye-tracking experiments. VED100 provides ground-truth human visual attention for 100 videos, suitable for training and evaluating saliency detection models.
+  - GitHub: https://github.com/spzhubuaa/VED100-A-Video-Based-Eye-Tracking-Dataset-on-Visual-Saliency-Detection
+
+**Relationship to Ranked-Vimeo-90K:** Both datasets address visual saliency but serve different purposes. VED100 offers small-scale, human-annotated fixation ground truth for saliency model evaluation, while Ranked-Vimeo-90K provides large-scale, model-generated pixel-wise saliency ranking maps optimized for saliency-aware video coding research. The two datasets are complementary: VED100 can be used to validate saliency detection models, whose outputs can then be applied at scale in the Ranked-Vimeo-90K framework for intelligent perceptual video compression.
+
 ## Citation
 
 If you use this dataset in your research, please cite:
