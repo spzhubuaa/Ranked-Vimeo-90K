@@ -15,8 +15,10 @@ Ranked-Vimeo-90K is a large-scale video dataset with pixel-level saliency rankin
 
 ## Dataset Structure
 
+The dataset is organized directly at the repository root:
+
 ```
-vimeo_rankmap_swinl/
+Ranked-Vimeo-90K/
 ├── 00001/
 │   ├── 0001/
 │   │   ├── im1.png
@@ -26,7 +28,8 @@ vimeo_rankmap_swinl/
 │   ├── 0002/
 │   └── ...
 ├── 00002/
-└── ...
+├── ...
+└── 00096/
 ```
 
 - **96** top-level directories
@@ -68,7 +71,7 @@ import os
 from PIL import Image
 import numpy as np
 
-dataset_root = "./Ranked-Vimeo-90K/vimeo_rankmap_swinl"
+dataset_root = "./Ranked-Vimeo-90K"
 
 # Load a 7-frame sequence
 seq_path = os.path.join(dataset_root, "00001", "0001")
