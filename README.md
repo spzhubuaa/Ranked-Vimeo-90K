@@ -15,7 +15,7 @@ Ranked-Vimeo-90K is a large-scale video dataset with pixel-level saliency rankin
 
 ## Dataset Structure
 
-The dataset is organized directly at the repository root:
+The dataset is packaged into 96 tar files (00001.tar ~ 00096.tar) on Hugging Face. After extraction:
 
 ```
 Ranked-Vimeo-90K/
@@ -41,7 +41,7 @@ Ranked-Vimeo-90K/
 
 ## Download
 
-The full dataset is hosted on Hugging Face Datasets:
+The full dataset is hosted on Hugging Face Datasets (packaged as 96 tar files):
 
 **https://huggingface.co/datasets/spzhu/Ranked-Vimeo-90K**
 
@@ -49,19 +49,29 @@ The full dataset is hosted on Hugging Face Datasets:
 
 ```python
 from huggingface_hub import snapshot_download
+import tarfile
+import os
 
 snapshot_download(
     repo_id="spzhu/Ranked-Vimeo-90K",
     repo_type="dataset",
     local_dir="./Ranked-Vimeo-90K"
 )
+
+# Extract all tar files
+dataset_dir = "./Ranked-Vimeo-90K"
+for tar_file in sorted(os.listdir(dataset_dir)):
+    if tar_file.endswith(".tar"):
+        with tarfile.open(os.path.join(dataset_dir, tar_file)) as tar:
+            tar.extractall(path=dataset_dir)
 ```
 
-### Using Git LFS
+### Using Git
 
 ```bash
-git lfs install
 git clone https://huggingface.co/datasets/spzhu/Ranked-Vimeo-90K
+cd Ranked-Vimeo-90K
+for f in *.tar; do tar -xf "$f"; done
 ```
 
 ## Usage Example
